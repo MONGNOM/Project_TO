@@ -7,11 +7,16 @@ using Color = UnityEngine.Color;
 public class Sword : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    public float gage;
     public TouchScreen touchScreen;
+    public CameraShake cameraShake;
+    public float gage;
     public float fevertime;
     public bool fever;
-
+    public GameObject fire;
+    public GameObject fire1;
+    public GameObject hammerfire2;
+    public GameObject hammerbody;
+    public DamageText damage;
 
     private void Awake()
     {
@@ -25,11 +30,19 @@ public class Sword : MonoBehaviour
     
     public void ChargeGage()
     {
+        
+
         if (gage >= 1)
         {
-            gage = 0f;
             fever = true;
+            fire.SetActive(true);
+            fire1.SetActive(true);
+            hammerfire2.SetActive(true);
+            hammerbody.SetActive(true);
+            gage = 0f;
+            cameraShake.CameraFever();
             Debug.Log("fever");
+            
         }
         else
         {
@@ -39,13 +52,16 @@ public class Sword : MonoBehaviour
 
         if (fever)
         {
+            damage.FeverGaugeText(1);
             touchScreen.PointUp(2);
+          
         }
         else
-        { 
+        {
+            damage.GaugeText(1);
             touchScreen.PointUp(1);
+           
         }
-
 
 
         touchScreen.TextPoint();
@@ -57,9 +73,16 @@ public class Sword : MonoBehaviour
         {
             fevertime += Time.deltaTime;
             if (fevertime >= 5)
-            { 
+            {
+                gage = 0f;
                 fever = false;
                 fevertime = 0f;
+                fire.SetActive(false);
+                fire1.SetActive(false);
+                hammerfire2.SetActive(false);
+                hammerbody.SetActive(false);
+                cameraShake.EndShake();
+
             }
         }
     }
