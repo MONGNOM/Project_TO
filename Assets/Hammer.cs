@@ -25,7 +25,7 @@ public class Hammer : MonoBehaviour
         Debug.Log("123");
     }
 
-    public void Fire()
+/*    public void Fire()
     {
         Instantiate(text, canvas.transform);
         if (sword.fever)
@@ -36,5 +36,5 @@ public class Hammer : MonoBehaviour
 
         particleFire.Play();
 
-    }
+    }*/
 }

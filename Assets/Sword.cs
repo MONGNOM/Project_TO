@@ -12,6 +12,8 @@ public class Sword : MonoBehaviour
     public float gage;
     public float fevertime;
     public bool fever;
+
+    public SwordFire swordfire;
     public GameObject fire;
     public GameObject fire1;
     public GameObject hammerfire2;
@@ -20,6 +22,7 @@ public class Sword : MonoBehaviour
 
     private void Awake()
     {
+        swordfire = GetComponentInChildren<SwordFire>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -35,7 +38,8 @@ public class Sword : MonoBehaviour
         if (gage >= 1)
         {
             fever = true;
-            fire.SetActive(true);
+            swordfire.ani.SetBool("Fire", true);
+            swordfire.sprite.color = Color.white;
             fire1.SetActive(true);
             hammerfire2.SetActive(true);
             hammerbody.SetActive(true);
@@ -46,18 +50,19 @@ public class Sword : MonoBehaviour
         }
         else
         {
-            gage += 0.01f;
             Debug.Log("Basic");
         }
 
         if (fever)
         {
-            damage.FeverGaugeText(1);
+            gage += 0.02f;
+            damage.FeverGaugeText(2);
             touchScreen.PointUp(2);
           
         }
         else
         {
+            gage += 0.01f;
             damage.GaugeText(1);
             touchScreen.PointUp(1);
            
@@ -72,16 +77,16 @@ public class Sword : MonoBehaviour
         if (fever)
         {
             fevertime += Time.deltaTime;
-            if (fevertime >= 5)
+            if (fevertime >= 3)
             {
-                gage = 0f;
                 fever = false;
                 fevertime = 0f;
-                fire.SetActive(false);
+                swordfire.sprite.color = new Color(1, 1, 1, 0);
                 fire1.SetActive(false);
                 hammerfire2.SetActive(false);
                 hammerbody.SetActive(false);
                 cameraShake.EndShake();
+                swordfire.ani.SetBool("Fire", false);
 
             }
         }

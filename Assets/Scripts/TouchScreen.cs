@@ -4,10 +4,29 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TouchScreen : MonoBehaviour
+public class TouchScreen : MonoBehaviour, IPointerClickHandler
 {
+
+    [SerializeField] private Gauge gauge;
+    [SerializeField] private PointChange pointChange;
+
     public TextMeshProUGUI text;
     public int point;
+    
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        pointChange.PointSpriteChange();
+        gauge.AddGauge();
+        Pointup();
+        Debug.Log("point+1");
+    }
+
+    private void Pointup()
+    {
+        point += 1;
+        // 점수 이미지 변경하는구현 
+    }
 
     public void PointUp(int p)
     {
