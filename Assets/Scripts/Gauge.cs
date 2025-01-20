@@ -8,7 +8,11 @@ public class Gauge : MonoBehaviour
 {
     private Image imageFillAmount;
     public float removeGauge;
+    public float addGauge;
     public float gaugeTime;
+    public float removegaugeTime;
+    public float minReMoveGaugeTime;
+
 
     public void Awake()
     {
@@ -22,7 +26,18 @@ public class Gauge : MonoBehaviour
 
     public void AddGauge()
     {
-        imageFillAmount.fillAmount += 0.01f;
+        imageFillAmount.fillAmount += addGauge;
+    }
+
+    public void RemoveGaugeTimeFast()
+    {
+        if (minReMoveGaugeTime > removegaugeTime)
+        {
+            removegaugeTime = minReMoveGaugeTime;
+            return;
+        }
+
+        gaugeTime -= removegaugeTime;
     }
 
     IEnumerator RemoveGauge()
@@ -33,16 +48,6 @@ public class Gauge : MonoBehaviour
             imageFillAmount.fillAmount -= removeGauge;
             yield return new WaitForSeconds(gaugeTime);
         }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("속도증가");
-            gaugeTime -= 0.1f;
-        }
-
     }
 
 }

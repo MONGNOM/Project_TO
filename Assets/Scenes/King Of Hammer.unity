@@ -184,6 +184,12 @@ MonoBehaviour:
   - {fileID: 857939568, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
   - {fileID: 1518641078, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
   - {fileID: -2025903061, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
+  numberImage:
+  - {fileID: 1696757547}
+  - {fileID: 1598567624}
+  - {fileID: 419198750}
+  touch: {fileID: 1040402020}
+  zero: {fileID: 436643331, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
 --- !u!1 &309969450
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +271,7 @@ GameObject:
   - component: {fileID: 401222675}
   - component: {fileID: 401222677}
   m_Layer: 5
-  m_Name: GaugeBackGround (1)
+  m_Name: GaugeBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -310,7 +316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8c4a57c5c21c86547ba89cd8cda38f8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 86ebc711885e6b5419fea8872c4900dc, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -340,8 +346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 128945dc3e020384b9f1510522bcb11d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  removeGauge: 0.01
+  removeGauge: 0.03
+  addGauge: 0.01
   gaugeTime: 0.5
+  removegaugeTime: 0.2
+  minReMoveGaugeTime: 0.05
 --- !u!1 &419198748
 GameObject:
   m_ObjectHideFlags: 0
@@ -354,7 +363,7 @@ GameObject:
   - component: {fileID: 419198751}
   - component: {fileID: 419198750}
   m_Layer: 5
-  m_Name: PointImage
+  m_Name: PointImage 100
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -399,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 436643331, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
+  m_Sprite: {fileID: -2025903061, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -549,7 +558,7 @@ Camera:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -709,7 +718,6 @@ MonoBehaviour:
   gauge: {fileID: 401222677}
   pointChange: {fileID: 182715038}
   text: {fileID: 0}
-  point: 0
 --- !u!114 &1040402021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -760,7 +768,7 @@ GameObject:
   - component: {fileID: 1598567625}
   - component: {fileID: 1598567624}
   m_Layer: 5
-  m_Name: PointImage (1)
+  m_Name: PointImage 10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -805,7 +813,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 436643331, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
+  m_Sprite: {fileID: -2025903061, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -835,7 +843,7 @@ GameObject:
   - component: {fileID: 1696757548}
   - component: {fileID: 1696757547}
   m_Layer: 5
-  m_Name: PointImage (2)
+  m_Name: PointImage 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,7 +888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 436643331, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
+  m_Sprite: {fileID: -2025903061, guid: d3e72f6393c983742a13d3319e43c66d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -11,11 +11,19 @@ public class TouchScreen : MonoBehaviour, IPointerClickHandler
     [SerializeField] private PointChange pointChange;
 
     public TextMeshProUGUI text;
-    public int point;
+    private int point;
+    private int gaugePoint;
+    public int Point { get { return point; } private set { point = value; } }
+    
     
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (gaugePoint >= 100)
+        {
+            gauge.RemoveGaugeTimeFast();
+            gaugePoint = 0;
+        }
         pointChange.PointSpriteChange();
         gauge.AddGauge();
         Pointup();
@@ -24,7 +32,8 @@ public class TouchScreen : MonoBehaviour, IPointerClickHandler
 
     private void Pointup()
     {
-        point += 1;
+        Point++;
+        gaugePoint++;
         // 점수 이미지 변경하는구현 
     }
 
