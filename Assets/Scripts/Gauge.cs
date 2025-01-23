@@ -21,6 +21,7 @@ public class Gauge : MonoBehaviour
 
     void Start()
     {
+        imageFillAmount.fillAmount = 1f;
         StartCoroutine(RemoveGauge());
     }
 
