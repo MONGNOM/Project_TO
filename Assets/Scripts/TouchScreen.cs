@@ -24,9 +24,9 @@ public class TouchScreen : MonoBehaviour, IPointerClickHandler
             gauge.RemoveGaugeTimeFast();
             gaugePoint = 0;
         }
-        pointChange.PointSpriteChange();
-        gauge.AddGauge();
         Pointup();
+        gauge.AddGauge();
+        pointChange.PointSpriteChange();
         Debug.Log("point+1");
     }
 
