@@ -13,6 +13,5 @@ public class EndImage : MonoBehaviour
     public void EndGame()
     { 
         gameObject.SetActive(true);
-        Debug.Log("2");
     }
 }

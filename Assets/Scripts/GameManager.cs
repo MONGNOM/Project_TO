@@ -23,7 +23,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     { 
         image.EndGame();
-        Application.Quit();
     }
 
     

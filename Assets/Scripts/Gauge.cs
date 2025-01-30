@@ -12,10 +12,12 @@ public class Gauge : MonoBehaviour
     public float gaugeTime;
     public float removegaugeTime;
     public float minReMoveGaugeTime;
+    private bool gameOver;
 
 
     public void Awake()
     {
+        gameOver = false;
         imageFillAmount = GetComponent<Image>();
     }
 
@@ -23,6 +25,15 @@ public class Gauge : MonoBehaviour
     {
         imageFillAmount.fillAmount = 1f;
         StartCoroutine(RemoveGauge());
+    }
+    private void Update()
+    {
+        if (gameOver) 
+        {
+            gameOver = false;
+            GameManager.instance.GameOver();
+        }
+
     }
 
     public void AddGauge()
@@ -43,12 +54,14 @@ public class Gauge : MonoBehaviour
 
     IEnumerator RemoveGauge()
     {
-        while (true) 
+        while (imageFillAmount.fillAmount > 0) 
         {
             Debug.Log("Gauge°¨¼Ò");
             imageFillAmount.fillAmount -= removeGauge;
             yield return new WaitForSeconds(gaugeTime);
         }
+        gameOver = true;
+
     }
 
 }
