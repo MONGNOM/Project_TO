@@ -6,6 +6,9 @@ using UnityEngine;
 public class TitleText : MonoBehaviour
 {
     TextMeshProUGUI text;
+    public float maxScale;
+    public float minScale;
+    public int speed;
     public float time;
 
     private void Awake()
@@ -19,16 +22,26 @@ public class TitleText : MonoBehaviour
 
     IEnumerator TextScaleChange()
     {
-        text.rectTransform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-        Debug.Log("1");
-        yield return new WaitForSeconds(time += Time.deltaTime);
-        text.rectTransform.localScale = new Vector3(1, 1, 1);
-        Debug.Log("2");
-
-       /* while (true)
+        while (true)
         {
-          
-        }*/
+            // ±Û¾¾ ÀÛ¾ÆÁü
+            while (time > 0)
+            {
+                time -= Time.deltaTime * speed;
+                float scale = Mathf.Lerp(minScale, maxScale, time);
+                text.rectTransform.localScale = new Vector3(scale, scale, 1);
+                yield return null;
 
+            }
+
+            // ±Û¾¾ Ä¿Áü
+            while (time < 1)
+            {
+                time += Time.deltaTime * speed;
+                float scale = Mathf.Lerp(minScale, maxScale, time);
+                text.rectTransform.localScale = new Vector3(scale, scale, 1);
+                yield return null;
+            }
+        }
     }
 }
