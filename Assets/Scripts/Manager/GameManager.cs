@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public EndImage image;
     public static GameManager instance;
 
     private void Awake()
@@ -22,7 +21,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     { 
-        image.EndGame();
     }
 
     
