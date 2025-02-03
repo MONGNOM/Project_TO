@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LowBlock
+    uniqueID: 1046565019
+    locked: 0
+  - name: HighBlock
+    uniqueID: 2619733373
+    locked: 0
