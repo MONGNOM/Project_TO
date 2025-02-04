@@ -24,7 +24,6 @@ public class PointChange : MonoBehaviour
     public void PointSpriteChange()
     {
 
-
         UpdateScoreUI();
     }
 

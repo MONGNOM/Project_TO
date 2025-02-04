@@ -23,8 +23,7 @@ public class Gauge : MonoBehaviour
 
     void Start()
     {
-        imageFillAmount.fillAmount = 1f;
-        StartCoroutine(RemoveGauge());
+        imageFillAmount.fillAmount = 0f;
     }
     private void Update()
     {
@@ -54,13 +53,14 @@ public class Gauge : MonoBehaviour
 
     IEnumerator RemoveGauge()
     {
+        // 일정 시간 터치 없을시 게이지 줄이는 것 시작
         while (imageFillAmount.fillAmount > 0) 
         {
             Debug.Log("Gauge감소");
             imageFillAmount.fillAmount -= removeGauge;
             yield return new WaitForSeconds(gaugeTime);
         }
-        gameOver = true;
+        //gameOver = true;
 
     }
 
