@@ -11,23 +11,25 @@ public class TouchBlock : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        /*if (touchPossible)
+        if (touchPossible)
         {
             Debug.Log("블록터치 됨");
             switchblock.SwapStart();
+            touchPossible = false;
             gameObject.SetActive(false);
-        }*/
+            
+        }
     }
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (touchPossible)
+       /* if (touchPossible)
         {
             Debug.Log("블록터치 됨");
             switchblock.SwapStart();
             gameObject.SetActive(false);
-        }
+        }*/
 
         //switchblock.PosChange();
         //gameObject.transform.position = preLocation;

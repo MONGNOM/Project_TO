@@ -98,6 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43637ecf7e3d7974090a46b5d020dd5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchPossible: 0
+  countNumber: 0
+  switchblock: {fileID: 0}
 --- !u!60 &2777490313714344814
 PolygonCollider2D:
   m_ObjectHideFlags: 0

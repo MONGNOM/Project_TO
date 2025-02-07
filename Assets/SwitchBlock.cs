@@ -5,24 +5,25 @@ using UnityEngine;
 
 public class SwitchBlock : MonoBehaviour
 {
+    [Header("올라가는데 걸리는 시간")]
+    [SerializeField] float posUpTime;
+
+    [Header("올라오는 최대 시간")]
+    [SerializeField] float checkTime;
 
     [SerializeField] int countNumber;
+    
 
     [SerializeField] TouchBlock[] blocks;
-    // [SerializeField] List<int> numberList = new List<int>();
 
     [SerializeField] private List<int> numbers = new List<int>();
-    [SerializeField] Vector3 preLocation;
-
-    private void Awake()
-    {
-        preLocation = new Vector3(0, 0, 0);
-        //numberList.Clear();
-    }
+ 
 
     void Start()
     {
         ResetNumbers();
+        numbers.Remove(numbers[13]);
+        
     }
 
     public int GetNextNumber()
@@ -57,47 +58,36 @@ public class SwitchBlock : MonoBehaviour
     }
 
 
+    IEnumerator MoveUp()
+    {
+        Vector3 preLocation = blocks[countNumber].transform.position; //예전 위치 저장
+        Vector3 targetLocation = preLocation + Vector3.up;            //이동 해야할 위치 저장
+        
+        posUpTime = 0;
+
+        while (posUpTime < checkTime)
+        {
+            posUpTime += Time.deltaTime;
+            blocks[countNumber].transform.position = Vector3.Lerp(preLocation, targetLocation, posUpTime);
+            yield return null;
+        }
+        blocks[countNumber].transform.position = targetLocation;
+
+    }
+
 // Start is called before the first frame update
 public void SwapStart()
     {
-        /*  if (numberList.Count <= 0)
-          {
-              numberList.Clear();
-
-              for (int i = 0; i < blocks.Length; i++)
-              {
-                  numberList.Add(i);
-              }
-          }*/
-
-        /* countNumber = Random.Range(0, usedNumbers.Count);
-         Debug.Log("뽑기");
-         if (usedNumbers.Contains(countNumber))
-         {
-             Debug.Log(usedNumbers[countNumber]);
-             usedNumbers.Remove(countNumber);
-         }*/
-
-
-        countNumber = GetNextNumber(); 
-        //Random.Range(0, blocks.Length -1);
-         Debug.Log("for문 i:" + countNumber);
-
-
-        preLocation = blocks[countNumber].transform.position;
-
-        //예전 위치 저장후
-
-        blocks[countNumber].transform.position = new Vector3(blocks[countNumber].transform.position.x, blocks[countNumber].transform.position.y + 1f, 0); //다음 위치로 이동
-
-        blocks[countNumber].touchPossible = true;
+        countNumber = GetNextNumber();
+        StartCoroutine(MoveUp());
+         blocks[countNumber].touchPossible = true;
 
         // 사라질때 원래 위치로 가야함
     }
 
     public void PosChange()
     {
-        blocks[countNumber].transform.position = preLocation;
+        //blocks[countNumber].transform.position = preLocation;
         Debug.Log("후 위치" + blocks[countNumber].transform.position);
     }
 

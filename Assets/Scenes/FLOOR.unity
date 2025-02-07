@@ -6335,7 +6335,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1176987452
 Transform:
   m_ObjectHideFlags: 0
@@ -9225,13 +9225,17 @@ PrefabInstance:
       propertyPath: switchblock
       value: 
       objectReference: {fileID: 1646390508}
-    - target: {fileID: 7895092120526311806, guid: a683a4b904f1e6a4bbb3d1a76267363e, type: 3}
-      propertyPath: m_LocalPosition.x
+    - target: {fileID: 3283698540155195777, guid: a683a4b904f1e6a4bbb3d1a76267363e, type: 3}
+      propertyPath: touchPossible
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7895092120526311806, guid: a683a4b904f1e6a4bbb3d1a76267363e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895092120526311806, guid: a683a4b904f1e6a4bbb3d1a76267363e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.25
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 7895092120526311806, guid: a683a4b904f1e6a4bbb3d1a76267363e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9271,7 +9275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8374120116320974956, guid: a683a4b904f1e6a4bbb3d1a76267363e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9589,6 +9593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993dee7bf221bb74787f2ef091a69a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  posUpTime: 0
+  checkTime: 1
   countNumber: 0
   blocks:
   - {fileID: 881976278}
@@ -9607,8 +9613,7 @@ MonoBehaviour:
   - {fileID: 1803114281}
   - {fileID: 1792510362}
   - {fileID: 1509387490}
-  usedNumbers: 
-  preLocation: {x: 0, y: 0, z: 0}
+  numbers: 
 --- !u!1001 &1649080449
 PrefabInstance:
   m_ObjectHideFlags: 0
