@@ -11,6 +11,9 @@ public class SwitchBlock : MonoBehaviour
     [Header("올라오는 최대 시간")]
     [SerializeField] float checkTime;
 
+    [Header("올라오는 속도 조절")]
+    [SerializeField] float upSpeed;
+
     [SerializeField] int countNumber;
     
 
@@ -67,7 +70,7 @@ public class SwitchBlock : MonoBehaviour
 
         while (posUpTime < checkTime)
         {
-            posUpTime += Time.deltaTime;
+            posUpTime += Time.deltaTime / upSpeed;
             blocks[countNumber].transform.position = Vector3.Lerp(preLocation, targetLocation, posUpTime);
             yield return null;
         }

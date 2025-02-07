@@ -9593,7 +9593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993dee7bf221bb74787f2ef091a69a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posUpTime: 0
+  posUpTime: 0.75
   checkTime: 1
   countNumber: 0
   blocks:
