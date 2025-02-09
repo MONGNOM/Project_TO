@@ -16,8 +16,10 @@ public class TouchBlock : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
             Debug.Log("블록터치 됨");
             switchblock.SwapStart();
             touchPossible = false;
+            switchblock.PosChange();
             gameObject.SetActive(false);
-            
+            Debug.Log("위치 수정");
+
         }
     }
 

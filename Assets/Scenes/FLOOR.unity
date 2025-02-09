@@ -3549,6 +3549,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7895092120526311806, guid: fc83eabd2a2431242be629c05bef348c, type: 3}
   m_PrefabInstance: {fileID: 649919623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &658364211
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 658364212}
+  - component: {fileID: 658364213}
+  m_Layer: 5
+  m_Name: UnderGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &658364212
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658364211}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1153773288}
+  - {fileID: 1049428856}
+  - {fileID: 1266153676}
+  - {fileID: 1355900045}
+  - {fileID: 1479823578}
+  - {fileID: 1331480456}
+  m_Father: {fileID: 1646390506}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &658364213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658364211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0658914add52ed4a9b9dff0863deb92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prePos: {x: 0, y: 0, z: 0}
+  checkTime: 1
+  upSpeed: 0.5
+  posUpTime: 0
 --- !u!1001 &691495900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5156,7 +5210,7 @@ Transform:
   - {fileID: 1267082068}
   - {fileID: 30694458}
   - {fileID: 1725857906}
-  m_Father: {fileID: 1646390506}
+  m_Father: {fileID: 658364212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1049428857
 TilemapRenderer:
@@ -6079,7 +6133,7 @@ Transform:
   - {fileID: 747711422}
   - {fileID: 1395596341}
   - {fileID: 1163117125}
-  m_Father: {fileID: 1646390506}
+  m_Father: {fileID: 658364212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1153773289
 TilemapRenderer:
@@ -6822,7 +6876,7 @@ Transform:
   - {fileID: 826501433}
   - {fileID: 1575560984}
   - {fileID: 1881542481}
-  m_Father: {fileID: 1646390506}
+  m_Father: {fileID: 658364212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1266153677
 TilemapRenderer:
@@ -7606,7 +7660,7 @@ Transform:
   - {fileID: 806865724}
   - {fileID: 1574558595}
   - {fileID: 1386704194}
-  m_Father: {fileID: 1646390506}
+  m_Father: {fileID: 658364212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1331480457
 TilemapRenderer:
@@ -7994,7 +8048,7 @@ Transform:
   - {fileID: 604524432}
   - {fileID: 1637848663}
   - {fileID: 369803230}
-  m_Father: {fileID: 1646390506}
+  m_Father: {fileID: 658364212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1355900046
 TilemapRenderer:
@@ -8717,7 +8771,7 @@ Transform:
   - {fileID: 417214391}
   - {fileID: 53249944}
   - {fileID: 2038901721}
-  m_Father: {fileID: 1646390506}
+  m_Father: {fileID: 658364212}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &1479823579
 TilemapRenderer:
@@ -9559,12 +9613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1153773288}
-  - {fileID: 1049428856}
-  - {fileID: 1266153676}
-  - {fileID: 1355900045}
-  - {fileID: 1479823578}
-  - {fileID: 1331480456}
+  - {fileID: 658364212}
   - {fileID: 33065474}
   - {fileID: 1176987452}
   m_Father: {fileID: 1631327548}
@@ -9593,9 +9642,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 993dee7bf221bb74787f2ef091a69a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  posUpTime: 0.75
+  posUpTime: 0
   checkTime: 1
+  upSpeed: 0.09
   countNumber: 0
+  countBlock: 0
   blocks:
   - {fileID: 881976278}
   - {fileID: 1968254169}
@@ -9614,6 +9665,8 @@ MonoBehaviour:
   - {fileID: 1792510362}
   - {fileID: 1509387490}
   numbers: 
+  preLocation: {x: 0, y: 0, z: 0}
+  underground: {fileID: 658364213}
 --- !u!1001 &1649080449
 PrefabInstance:
   m_ObjectHideFlags: 0
