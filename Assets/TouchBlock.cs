@@ -1,37 +1,80 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class TouchBlock : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
     public bool touchPossible;
+    public bool fever;
     [SerializeField] int countNumber;
     [SerializeField] SwitchBlock switchblock;
+    [SerializeField] UnderGround underblock;
+    [SerializeField] Vector3 prePos;
+    [SerializeField] DamageText damageText;
+    [SerializeField] GameObject textPrab;
+    [SerializeField] Gauge gauge;
+    [SerializeField] new  CameraShake camera;
+
+    public Canvas canve;
+
+    private void Start()
+    {
+        prePos = transform.position;
+        fever = false;
+        gauge = FindAnyObjectByType<Gauge>();
+        camera = FindAnyObjectByType<CameraShake>();
+        underblock = FindAnyObjectByType<UnderGround>();
+    }
+
+
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (touchPossible)
-        {
-            Debug.Log("블록터치 됨");
-            switchblock.SwapStart();
-            touchPossible = false;
-            switchblock.PosChange();
-            gameObject.SetActive(false);
-            Debug.Log("위치 수정");
+        if (touchPossible)                          // 블록 터치 후 상황
+        {   
+            switchblock.SwapStart();                // 랜덤 번호 뽑기 후 벽돌 올리기
+            gauge.AddGauge();
+            damageText.TextUp();                    // 랜덤 텍스트 뽑기
+            Instantiate(textPrab, transform.position, Quaternion.identity, canve.transform); // 텍스트 생성
 
+            touchPossible = false;
+            gameObject.SetActive(false);
+            gameObject.transform.position = prePos; // 블록 원위치
+            underblock.GroundSet();                 // 이거 옮기고 switch로 바꿔서 해야할듯
+        }
+    }
+    private void Update()
+    {
+        if (gauge.imageFillAmount.fillAmount >= 1)
+        {
+            fever = true;
+            camera.basic = false;
         }
     }
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-       /* if (touchPossible)
+        if (gauge.feverTime >= gauge.delayTime)
         {
-            Debug.Log("블록터치 됨");
-            switchblock.SwapStart();
+           
+            gauge.feverTime = 0f;
+            gauge.imageFillAmount.fillAmount = 0;
+            fever = false;
+            camera.basic = true;
+        }
+
+        if (fever)
+        {
+            camera.BackGroundColor();
+            underblock.countBlock++;
             gameObject.SetActive(false);
-        }*/
+            underblock.GroundSet();                 // 이거 옮기고 switch로 바꿔서 해야할듯
+            Debug.Log("블록터치 됨");
+        }
 
         //switchblock.PosChange();
         //gameObject.transform.position = preLocation;

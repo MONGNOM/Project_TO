@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.Collections.AllocatorManager;
 
 public class SwitchBlock : MonoBehaviour
 {
@@ -17,7 +19,6 @@ public class SwitchBlock : MonoBehaviour
     [Header("블록 클릭 갯수")]
     [SerializeField] int countNumber;
 
-    [SerializeField] int countBlock;
     
 
     [SerializeField] TouchBlock[] blocks;
@@ -25,44 +26,44 @@ public class SwitchBlock : MonoBehaviour
     [SerializeField] private List<int> numbers = new List<int>();
     [SerializeField] private Vector3 preLocation;
     [SerializeField] private UnderGround underground;
+  
+
+    public int randomNumber;
+
 
     void Start()
     {
         ResetNumbers();
         numbers.Remove(numbers[13]);
-        
+        Debug.Log(blocks.Length);
     }
 
-
-
-    public int GetNextNumber()
+    public void GetNextNumber()
     {
-        int randomNumber;
-
-        do
-        {
-            randomNumber = Random.Range(0, 16); // 0~15 사이의 랜덤 숫자 선택
-            Debug.Log(randomNumber);
-        }
-        while (!numbers.Contains(randomNumber)); // 리스트에 없는 숫자라면 다시 뽑기
-        {
-            numbers.Remove(randomNumber); // 리스트에서 제거
-            countBlock++;
-        }
         // 리스트가 비었다면 다시 초기화
         if (numbers.Count == 0)
         {
             ResetNumbers();
         }
-
-        if (countBlock >= 16)
+        
+        randomNumber = Random.Range(0, 16); // 0~15 사이의 랜덤 숫자 선택
+        Debug.Log(randomNumber);
+        while (!numbers.Contains(randomNumber)) // 리스트에 없는 숫자라면 다시 뽑기
         {
-            Debug.Log("Under올리기");
-            countBlock = 0;
-            underground.UpGround();
+            randomNumber = Random.Range(0, 16);
         }
 
-        return randomNumber;
+        numbers.Remove(randomNumber);
+        underground.countBlock++;
+    }
+
+    public void BlockSet()
+    {
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            blocks[i].gameObject.SetActive(true);
+            Debug.Log("3");
+        }
     }
 
     private void ResetNumbers()
@@ -77,36 +78,27 @@ public class SwitchBlock : MonoBehaviour
 
     IEnumerator MoveUp()
     {
-        preLocation = blocks[countNumber].transform.position; //예전 위치 저장
-        Vector3 targetLocation = preLocation + Vector3.up;            //이동 해야할 위치 저장
+        preLocation = blocks[randomNumber].transform.position;   //예전 위치 저장
+        Vector3 targetLocation = preLocation + Vector3.up;      //이동 해야할 위치 저장
         
         posUpTime = 0;
 
         while (posUpTime < checkTime)
         {
             posUpTime += Time.deltaTime / upSpeed;
-            blocks[countNumber].transform.position = Vector3.Lerp(preLocation, targetLocation, posUpTime);
+            blocks[randomNumber].transform.position = Vector3.Lerp(preLocation, targetLocation, posUpTime);
             yield return null;
         }
-        blocks[countNumber].transform.position = targetLocation;
-        Debug.Log("MoveUp" + blocks[countNumber].transform.position);
+        blocks[randomNumber].transform.position = targetLocation;
+        Debug.Log("MoveUp" + blocks[randomNumber].transform.position);
         Debug.Log("MoveUpPre" + preLocation);
     }
 
-// Start is called before the first frame update
     public void SwapStart()
     {
-        countNumber = GetNextNumber();
+        GetNextNumber();
         StartCoroutine(MoveUp());
-        blocks[countNumber].touchPossible = true;
-
-        // 사라질때 원래 위치로 가야함
-    }
-
-    public void PosChange()
-    {
-        Debug.Log("PosChange");
-        blocks[countNumber].transform.position = preLocation;
+        blocks[randomNumber].touchPossible = true;
     }
 
 }

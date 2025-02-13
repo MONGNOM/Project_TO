@@ -6,13 +6,15 @@ using UnityEngine.UI;
 
 public class Gauge : MonoBehaviour
 {
-    private Image imageFillAmount;
+    public Image imageFillAmount;
     public float removeGauge;
     public float addGauge;
     public float gaugeTime;
     public float removegaugeTime;
     public float minReMoveGaugeTime;
     private bool gameOver;
+    public float feverTime;
+    public float delayTime;
 
 
     public void Awake()
@@ -27,11 +29,11 @@ public class Gauge : MonoBehaviour
     }
     private void Update()
     {
-        if (gameOver) 
+        if (imageFillAmount.fillAmount >= 1)
         {
-            gameOver = false;
-            GameManager.instance.GameOver();
+            feverTime += Time.deltaTime;
         }
+       
 
     }
 

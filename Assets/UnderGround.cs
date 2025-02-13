@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class UnderGround : MonoBehaviour
 {
+    [SerializeField] private SwitchBlock block;
     [SerializeField] private Vector3 prePos;
+
+     public int countBlock; 
 
 
     [SerializeField] float checkTime;
     [SerializeField] float upSpeed;
     [SerializeField] float posUpTime;
-    public void UpGround()
+
+    public void GroundSet()
     {
-        StartCoroutine(CoUpGround());
+        if (countBlock >= 16)
+        {
+            countBlock = 0;
+            StartCoroutine(CoUpGround());
+        }
     }
 
     IEnumerator CoUpGround()
@@ -28,12 +36,17 @@ public class UnderGround : MonoBehaviour
             yield return null;
         }
         gameObject.transform.position = targetPos;
+        Debug.Log("1");
+        block.BlockSet();
+        DownGround();
     }
 
     public void DownGround()
     {
         gameObject.transform.position = prePos;
+        Debug.Log("2");
     }
 
 
 }
+
