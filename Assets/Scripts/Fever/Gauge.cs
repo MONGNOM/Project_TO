@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 
 public class Gauge : MonoBehaviour
@@ -32,6 +33,12 @@ public class Gauge : MonoBehaviour
         if (imageFillAmount.fillAmount >= 1)
         {
             feverTime += Time.deltaTime;
+        }
+
+        if (UnityEngine.Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            imageFillAmount.fillAmount = 1;
+            Debug.Log("Fever¡¯¿‘");
         }
        
 

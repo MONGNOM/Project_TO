@@ -62,7 +62,6 @@ public class SwitchBlock : MonoBehaviour
         for (int i = 0; i < blocks.Length; i++)
         {
             blocks[i].gameObject.SetActive(true);
-            Debug.Log("3");
         }
     }
 
@@ -90,8 +89,7 @@ public class SwitchBlock : MonoBehaviour
             yield return null;
         }
         blocks[randomNumber].transform.position = targetLocation;
-        Debug.Log("MoveUp" + blocks[randomNumber].transform.position);
-        Debug.Log("MoveUpPre" + preLocation);
+       
     }
 
     public void SwapStart()

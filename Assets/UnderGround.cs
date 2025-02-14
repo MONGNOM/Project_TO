@@ -5,15 +5,22 @@ using UnityEngine;
 public class UnderGround : MonoBehaviour
 {
     [SerializeField] private SwitchBlock block;
+    [SerializeField] private PointChange pointchange;
     [SerializeField] private Vector3 prePos;
 
-     public int countBlock; 
+    public int countBlock;
+    public int countFloor;
 
 
     [SerializeField] float checkTime;
     [SerializeField] float upSpeed;
     [SerializeField] float posUpTime;
 
+    private void Start()
+    {
+        countFloor = 1;
+        pointchange.PointSpriteChange();
+    }
     public void GroundSet()
     {
         if (countBlock >= 16)
@@ -39,6 +46,8 @@ public class UnderGround : MonoBehaviour
         Debug.Log("1");
         block.BlockSet();
         DownGround();
+        countFloor++;
+        pointchange.PointSpriteChange();
     }
 
     public void DownGround()
