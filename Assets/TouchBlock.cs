@@ -39,7 +39,7 @@ public class TouchBlock : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
             gauge.AddGauge();
             damageText.TextUp();                    // 랜덤 텍스트 뽑기
             Instantiate(textPrab, transform.position, Quaternion.identity, canve.transform); // 텍스트 생성
-
+            fever = false;
             touchPossible = false;
             gameObject.SetActive(false);
             gameObject.transform.position = prePos; // 블록 원위치
@@ -52,6 +52,7 @@ public class TouchBlock : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
         {
             fever = true;
             camera.basic = false;
+            Debug.Log("fever: true");
         }
     }
 
@@ -60,19 +61,20 @@ public class TouchBlock : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
     {
         if (gauge.feverTime >= gauge.delayTime)
         {
-           
             gauge.feverTime = 0f;
             gauge.imageFillAmount.fillAmount = 0;
-            fever = false;
+            Debug.Log("fever: false");
             camera.basic = true;
         }
 
         if (fever)
         {
+            // 드래그시 리스트에서 삭제 해주는 코드
             camera.BackGroundColor();
             underblock.countBlock++;
             gameObject.SetActive(false);
-            underblock.GroundSet();                 // 이거 옮기고 switch로 바꿔서 해야할듯
+            fever = false;
+            underblock.GroundSet();                
             Debug.Log("블록터치 됨");
         }
 

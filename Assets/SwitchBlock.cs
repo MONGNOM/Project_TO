@@ -57,6 +57,8 @@ public class SwitchBlock : MonoBehaviour
         underground.countBlock++;
     }
 
+    
+
     public void BlockSet()
     {
         for (int i = 0; i < blocks.Length; i++)

@@ -1459,7 +1459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1655821165, guid: 4abcfce55c2c216419abf6dce7c863db, type: 3}
+  m_Sprite: {fileID: 1486783557, guid: 4abcfce55c2c216419abf6dce7c863db, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4263,7 +4263,7 @@ MonoBehaviour:
   pointchange: {fileID: 843575208}
   prePos: {x: 0, y: 0, z: 0}
   countBlock: 0
-  countFloor: 0
+  countFloor: 9
   checkTime: 1
   upSpeed: 0.5
   posUpTime: 0
