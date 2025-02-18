@@ -20,7 +20,9 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver()
-    { 
+    {
+        Debug.Log("얼음!!!");
+        // 랭킹씬으로 넘어가는 함수 구현
     }
 
     

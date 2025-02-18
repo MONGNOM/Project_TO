@@ -1548,6 +1548,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 280732131}
+  - component: {fileID: 280732132}
   m_Layer: 0
   m_Name: HighBlock
   m_TagString: Untagged
@@ -1584,6 +1585,20 @@ Transform:
   - {fileID: 94246438}
   m_Father: {fileID: 1631327548}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &280732132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280732130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44055abf6f087fc4d942575d28181119, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  donwTime: 1
+  downHeight: 0.1
 --- !u!1 &285961168
 GameObject:
   m_ObjectHideFlags: 0

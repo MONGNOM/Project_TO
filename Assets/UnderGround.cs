@@ -6,6 +6,7 @@ public class UnderGround : MonoBehaviour
 {
     [SerializeField] private SwitchBlock block;
     [SerializeField] private PointChange pointchange;
+    [SerializeField] private BlockDonw blockDown;
     [SerializeField] private Vector3 prePos;
 
     public int countBlock;
@@ -44,6 +45,7 @@ public class UnderGround : MonoBehaviour
         }
         gameObject.transform.position = targetPos;
         Debug.Log("1");
+        blockDown.PreviousPos();
         block.BlockSet();
         DownGround();
         countFloor++;
