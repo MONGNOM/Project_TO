@@ -25,9 +25,10 @@ public class TouchScreen : MonoBehaviour, IPointerClickHandler
         }*/
 
         //Pointup();
-        gauge.AddGauge();
+        //gauge.AddGauge();
         //pointChange.PointSpriteChange(); // 포인트 이미지 교체
         Debug.Log("블록 터치 ");
+         
     }
 
     private void Pointup()

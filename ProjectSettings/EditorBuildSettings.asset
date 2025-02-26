@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/NOW/Main.unity
     guid: fed1b927123160f4398a1238b5a29a13
   - enabled: 1
-    path: Assets/Scenes/King Of Hammer.unity
-    guid: f7adb364a22ce3a49900f72897836914
+    path: Assets/Scenes/NOW/Floor.unity
+    guid: 6d4faf09ff0235b4790e1e84b4cf3b9a
+  - enabled: 1
+    path: Assets/Scenes/NOW/End.unity
+    guid: 4a3cd99bdc1d45e438ae23dd576db3d2
   m_configObjects: {}

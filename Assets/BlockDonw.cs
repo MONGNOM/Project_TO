@@ -62,7 +62,7 @@ public class BlockDonw : MonoBehaviour
             yield return new WaitForSeconds(downTime);
         }
 
-       // GameManager.instance.GameOver();
+        GameManager.instance.GameOver();
     }
 
 

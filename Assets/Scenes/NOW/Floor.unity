@@ -1597,8 +1597,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44055abf6f087fc4d942575d28181119, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  donwTime: 1
+  floorCounter: 1
+  downTime: 1
+  mindownTime: 0.5
   downHeight: 0.1
+  mindownHeight: 0
+  floorCount: 0
+  pos: {x: 0, y: 0}
+  prePos: {x: 0, y: 0}
 --- !u!1 &285961168
 GameObject:
   m_ObjectHideFlags: 0
@@ -4276,6 +4282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   block: {fileID: 1646390508}
   pointchange: {fileID: 843575208}
+  blockDown: {fileID: 280732132}
   prePos: {x: 0, y: 0, z: 0}
   countBlock: 0
   countFloor: 9
@@ -11678,6 +11685,7 @@ GameObject:
   - component: {fileID: 1712880344}
   - component: {fileID: 1712880343}
   - component: {fileID: 1712880342}
+  - component: {fileID: 1712880345}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -11724,6 +11732,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1712880345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1712880341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6a26cd8393f6104e8a1092158e73019, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1725857905
 PrefabInstance:
   m_ObjectHideFlags: 0

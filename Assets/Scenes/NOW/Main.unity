@@ -197,7 +197,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -1031,7 +1031,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -3
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -1313,7 +1313,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -2
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -1463,6 +1463,8 @@ GameObject:
   - component: {fileID: 1176987452}
   - component: {fileID: 1176987454}
   - component: {fileID: 1176987453}
+  - component: {fileID: 1176987455}
+  - component: {fileID: 1176987456}
   m_Layer: 0
   m_Name: StartBlock
   m_TagString: Untagged
@@ -1523,11 +1525,11 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -997025179
+  m_SortingLayer: 3
+  m_SortingOrder: 50
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -1606,6 +1608,56 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!19719996 &1176987455
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176987451}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0
+  m_UseDelaunayMesh: 0
+--- !u!114 &1176987456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176987451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11eab81241d7f54a9ee7f5bc343d497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gauge: {fileID: 0}
+  pointChange: {fileID: 0}
 --- !u!1 &1266153675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,7 +1733,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -4
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -2029,7 +2081,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -2412,7 +2464,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -5
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
@@ -2626,7 +2678,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -6
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0.3, y: 0.62, z: 0}
+  m_ChunkCullingBounds: {x: 0.3, y: 0.53999996, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 3
